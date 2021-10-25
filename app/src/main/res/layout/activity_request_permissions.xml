@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RequestPermissionsActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#333"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="打钩并且不能选择的，表示已经获取该权限"
+        />
+
+    <CheckBox
+        android:id="@+id/bluetoothAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUETOOTH_ADMIN" />
+
+    <CheckBox
+        android:id="@+id/bluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUETOOTH" />
+
+    <CheckBox
+        android:id="@+id/accessFineLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACCESS_FINE_LOCATION" />
+
+    <CheckBox
+        android:id="@+id/accessCoarseLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACCESS_COARSE_LOCATION" />
+
+
+    <CheckBox
+        android:id="@+id/bluetoothScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUETOOTH_SCAN" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="蓝牙扫描权限" />
+
+    <CheckBox
+        android:id="@+id/bluetoothAdvertise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUETOOTH_ADVERTISE" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="蓝牙发送广播权限" />
+
+    <CheckBox
+        android:id="@+id/bluetoothConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BLUETOOTH_CONNECT" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="经典蓝牙socket 连接权限" />
+
+    <Button
+        android:id="@+id/requestPermissions"
+        android:text="申请权限"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        />
+
+
+
+</LinearLayout>

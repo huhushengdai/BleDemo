@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ScanActivity">
+
+    <EditText
+        android:id="@+id/scanMacFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="mac 过滤"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/scanNameFilter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="名称过滤"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanMacFilter" />
+
+
+
+    <Button
+        android:id="@+id/scanBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="btScan"
+        android:text="BT扫描"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanNameFilter" />
+
+    <Button
+        android:id="@+id/scanBLE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="bleScan"
+        android:text="BLE扫描"
+        app:layout_constraintStart_toEndOf="@id/scanBT"
+        app:layout_constraintTop_toTopOf="@id/scanBT" />
+
+    <Button
+        android:id="@+id/scanStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="stopScan"
+        android:text="停止扫描"
+        app:layout_constraintStart_toEndOf="@id/scanBLE"
+        app:layout_constraintTop_toTopOf="@id/scanBT" />
+
+    <Button
+        android:id="@+id/scanClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="clearScan"
+        android:text="清空列表"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanBT" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scanDeviceList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scanClear" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

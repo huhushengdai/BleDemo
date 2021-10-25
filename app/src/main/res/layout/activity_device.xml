@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".DeviceActivity">
+
+    <TextView
+        android:id="@+id/deviceInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginEnd="@dimen/marginEnd"
+        android:textSize="16sp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="createBond"
+        android:text="发起配对"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginEnd="@dimen/marginEnd"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gattConnect"
+        android:text="GATT 连接"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginEnd="@dimen/marginEnd"
+        />
+
+    <TextView
+        android:id="@+id/deviceUuid"
+        android:layout_marginStart="@dimen/marginStart"
+        android:layout_marginEnd="@dimen/marginEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

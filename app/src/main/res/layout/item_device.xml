@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#7533"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:id="@+id/itemDeviceContainer"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/itemDeviceInfo"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
