@@ -72,9 +72,9 @@ public class RequestPermissionsActivity extends AppCompatActivity {
         addPermissions(permissions, mAccessFineLocationCheck, Manifest.permission.ACCESS_FINE_LOCATION);
         addPermissions(permissions, mAccessCoarseLocationCheck, Manifest.permission.ACCESS_COARSE_LOCATION);
 
-//        addPermissions(permissions, mBluetoothScanCheck, Manifest.permission.BLUETOOTH_SCAN);
-//        addPermissions(permissions, mBluetoothAdvertiseCheck, Manifest.permission.BLUETOOTH_ADVERTISE);
-//        addPermissions(permissions, mBluetoothConnectCheck, Manifest.permission.BLUETOOTH_CONNECT);
+        addPermissions(permissions, mBluetoothScanCheck, Manifest.permission.BLUETOOTH_SCAN);
+        addPermissions(permissions, mBluetoothAdvertiseCheck, Manifest.permission.BLUETOOTH_ADVERTISE);
+        addPermissions(permissions, mBluetoothConnectCheck, Manifest.permission.BLUETOOTH_CONNECT);
         String[] requestPermissions = new String[permissions.size()];
         requestPermissions = permissions.toArray(requestPermissions);
         ActivityCompat.requestPermissions(this, requestPermissions, REQUEST_PERMISSIONS_CODE);
@@ -91,9 +91,9 @@ public class RequestPermissionsActivity extends AppCompatActivity {
         checkAndBindView(mBluetoothCheck, Manifest.permission.BLUETOOTH);
         checkAndBindView(mAccessFineLocationCheck, Manifest.permission.ACCESS_FINE_LOCATION);
         checkAndBindView(mAccessCoarseLocationCheck, Manifest.permission.ACCESS_COARSE_LOCATION);
-//        checkAndBindView(mBluetoothScanCheck, Manifest.permission.BLUETOOTH_SCAN);
-//        checkAndBindView(mBluetoothAdvertiseCheck, Manifest.permission.BLUETOOTH_ADVERTISE);
-//        checkAndBindView(mBluetoothConnectCheck, Manifest.permission.BLUETOOTH_CONNECT);
+        checkAndBindView(mBluetoothScanCheck, Manifest.permission.BLUETOOTH_SCAN);
+        checkAndBindView(mBluetoothAdvertiseCheck, Manifest.permission.BLUETOOTH_ADVERTISE);
+        checkAndBindView(mBluetoothConnectCheck, Manifest.permission.BLUETOOTH_CONNECT);
     }
 
     private void checkAndBindView(CheckBox v, String permission) {
