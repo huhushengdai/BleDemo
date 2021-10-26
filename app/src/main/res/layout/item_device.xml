@@ -1,17 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#7533"
     android:orientation="horizontal"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:id="@+id/itemDeviceContainer"
+    android:paddingStart="3dp"
+    android:paddingEnd="3dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
     android:layout_margin="5dp">
 
-    <TextView
-        android:id="@+id/itemDeviceInfo"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1"
+        android:id="@+id/itemDeviceIndex"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemDeviceName"
+        android:layout_marginStart="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/itemDeviceIndex"
+        tools:text="name = xxx"
+        />
+
+    <TextView
+        android:id="@+id/itemDeviceType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="type = le"
+        app:layout_constraintTop_toTopOf="@id/itemDeviceMac"
+        app:layout_constraintStart_toEndOf="@id/itemDeviceMac"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="15dp"
+        />
+
+    <TextView
+        android:id="@+id/itemDeviceMac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemDeviceIndex"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="mac = xx"
+        />
+
+    <TextView
+        android:id="@+id/itemDeviceRssi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/itemDeviceMac"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="rssi = - 35"
+        />
+
+    <TextView
+        android:id="@+id/itemDeviceBondState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/itemDeviceRssi"
+        app:layout_constraintStart_toStartOf="@id/itemDeviceType"
+        tools:text="bond state = none"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

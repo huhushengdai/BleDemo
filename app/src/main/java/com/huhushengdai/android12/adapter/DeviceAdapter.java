@@ -16,7 +16,7 @@ import java.util.List;
 
 public class DeviceAdapter extends BaseRecycleAdapter<ChoiceDevice> {
 
-    private static final String info = "%s. name = %s \nmac = %s \ntype = %s  \nstate = %s";
+    private static final String info = "%s. name = %s\rtype = %s  \nmac = %s  \rstate = %s \n rssi = %s";
 
     public DeviceAdapter(Context context, List<ChoiceDevice> data) {
         super(context, data);
@@ -32,12 +32,12 @@ public class DeviceAdapter extends BaseRecycleAdapter<ChoiceDevice> {
     public void onViewRefresh(@NonNull BaseViewHolder holder, int position) {
         ChoiceDevice choiceDevice = getItemData(position);
         BluetoothDevice device = choiceDevice.device;
-        ((TextView) holder.findViewById(R.id.itemDeviceInfo))
-                .setText(String.format(info, choiceDevice.getIndex(),
-                        device.getName()
-                        , device.getAddress()
-                        , BluetoothDeviceUtils.getType(device)
-                        , BluetoothDeviceUtils.getState(device)));
+        ((TextView) holder.findViewById(R.id.itemDeviceIndex)).setText(choiceDevice.getIndex() + ".");
+        ((TextView) holder.findViewById(R.id.itemDeviceName)).setText("name = " + device.getName());
+        ((TextView) holder.findViewById(R.id.itemDeviceMac)).setText("mac = " + device.getAddress());
+        ((TextView) holder.findViewById(R.id.itemDeviceType)).setText("type = " + BluetoothDeviceUtils.getType(device));
+        ((TextView) holder.findViewById(R.id.itemDeviceBondState)).setText("bond state = " + BluetoothDeviceUtils.getState(device));
+        ((TextView) holder.findViewById(R.id.itemDeviceRssi)).setText("rssi = " + choiceDevice.getRssi());
     }
 
     @Override

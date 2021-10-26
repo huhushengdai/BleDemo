@@ -62,7 +62,8 @@ public class ScanActivity extends AppCompatActivity {
                 // 从 Intent 中获取发现的 BluetoothDevice
 
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                onFoundDevice(device, null);
+                int rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, (short) 0);
+                onFoundDevice(device, null, rssi);
             }
         }
     };
@@ -93,7 +94,7 @@ public class ScanActivity extends AppCompatActivity {
 
     public void btScan(View view) {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (!adapter.isEnabled()){
+        if (!adapter.isEnabled()) {
             toast("蓝牙没开启，请手动开启");
             return;
         }
@@ -107,7 +108,7 @@ public class ScanActivity extends AppCompatActivity {
 
     public void bleScan(View view) {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (!adapter.isEnabled()){
+        if (!adapter.isEnabled()) {
             toast("蓝牙没开启，请手动开启");
             return;
         }
@@ -133,7 +134,7 @@ public class ScanActivity extends AppCompatActivity {
             @Override
             public void onScanResult(int callbackType, ScanResult result) {
                 super.onScanResult(callbackType, result);
-                onFoundDevice(result.getDevice(), result.getScanRecord().getBytes());
+                onFoundDevice(result.getDevice(), result.getScanRecord().getBytes(), result.getRssi());
             }
         };
         scanner.startScan(null, settings, callback);
@@ -156,7 +157,7 @@ public class ScanActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-    private void onFoundDevice(BluetoothDevice device, byte[] record) {
+    private void onFoundDevice(BluetoothDevice device, byte[] record, int rssi) {
         String type = BluetoothDeviceUtils.getType(device);
         LogTool.i("mac = " + device.getAddress() + ",type = "
                 + type + ",name " + device.getName()
@@ -168,7 +169,7 @@ public class ScanActivity extends AppCompatActivity {
         if (devices.size() >= 100) {
             devices.remove(0);
         }
-        devices.add(new ChoiceDevice(device, (short) 0, mIndex++));
+        devices.add(new ChoiceDevice(device, rssi, mIndex++));
         ArrayList<ChoiceDevice> tempList = new ArrayList<>(devices);
         Collections.reverse(tempList);
         mAdapter.setData(tempList);

@@ -5,10 +5,10 @@ import android.bluetooth.BluetoothDevice;
 public class ChoiceDevice {
     private boolean check;
     public final BluetoothDevice device;
-    private short rssi;
+    private int rssi;
     private int index;
 
-    public ChoiceDevice(BluetoothDevice device, short rssi,int index) {
+    public ChoiceDevice(BluetoothDevice device, int rssi,int index) {
         this.device = device;
         this.rssi = rssi;
         this.index = index;
@@ -18,11 +18,11 @@ public class ChoiceDevice {
         return index;
     }
 
-    public short getRssi() {
+    public int getRssi() {
         return rssi;
     }
 
-    public void setRssi(short rssi) {
+    public void setRssi(int rssi) {
         this.rssi = rssi;
     }
 
