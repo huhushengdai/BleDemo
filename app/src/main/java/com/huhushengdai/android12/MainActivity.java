@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.huhushengdai.tool.log.LogTool;
+
 public class MainActivity extends AppCompatActivity {
 
     private SwitchCompat mBluetoothSwitch;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mBluetoothSwitch.setChecked(BluetoothAdapter.getDefaultAdapter().isEnabled());
+        LogTool.i("App init");
     }
 
     /**

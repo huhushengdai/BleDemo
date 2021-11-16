@@ -36,6 +36,7 @@ import com.huhushengdai.android12.adapter.DeviceAdapter;
 import com.huhushengdai.android12.bean.ChoiceDevice;
 import com.huhushengdai.android12.databinding.ActivityScanBinding;
 import com.huhushengdai.android12.utils.BluetoothDeviceUtils;
+import com.huhushengdai.android12.utils.PrintTestUtils;
 import com.huhushengdai.tool.log.LogTool;
 
 import java.util.ArrayList;
@@ -83,6 +84,7 @@ public class ScanActivity extends AppCompatActivity {
         mAdapter = new DeviceAdapter(this, devices);
         mAdapter.setOnChildClickListener((parent, child, position) -> toDevice(mAdapter.getItemData(position).device));
         r.setAdapter(mAdapter);
+        PrintTestUtils.printPermissionInfo(this.getApplicationContext());
     }
 
     @Override
@@ -152,7 +154,7 @@ public class ScanActivity extends AppCompatActivity {
 
     public void clearScan(View view) {
         //todo 这里列表data 写法有点问题，后续改下
-//        devices.clear();
+        devices.clear();
         mAdapter.setData(null);
         mAdapter.notifyDataSetChanged();
     }
@@ -163,6 +165,9 @@ public class ScanActivity extends AppCompatActivity {
                 + type + ",name " + device.getName()
                 + "\n" + (record == null || record.length <= 0 ? "is null" : bytesToHexString(record))
         );
+        if (!"TYHID".equals(device.getName())){
+            return;
+        }
         if (!isAddList(device)) {
             return;
         }
