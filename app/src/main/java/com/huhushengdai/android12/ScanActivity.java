@@ -165,9 +165,6 @@ public class ScanActivity extends AppCompatActivity {
                 + type + ",name " + device.getName()
                 + "\n" + (record == null || record.length <= 0 ? "is null" : bytesToHexString(record))
         );
-        if (!"TYHID".equals(device.getName())){
-            return;
-        }
         if (!isAddList(device)) {
             return;
         }
